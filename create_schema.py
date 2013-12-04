@@ -23,6 +23,7 @@
 '''
 
 import sys
+import json
 from pprint import pprint
 
 args = sys.argv
@@ -34,6 +35,8 @@ if len(args) < 3:
 csvFile = open(args[1] , 'r')
 outFile = open(args[2], 'w')
 collectionName = args[3]
+
+print outFile
 
 schema = {'name' : collectionName, 'fields' : []}
 
@@ -64,4 +67,7 @@ while True:
     
       schema['fields'].append(field)
 
-pprint(schema)
+schemaJSON = json.dumps(schema)
+
+outFile.write(schemaJSON)
+outFile.close()
