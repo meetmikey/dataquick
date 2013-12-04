@@ -1,3 +1,7 @@
+"""
+  Takes in json schema and writes content of fixed width dataquick text file into a mongo collection
+"""
+
 from pymongo import MongoClient
 from pprint import pprint
 import json
@@ -9,8 +13,6 @@ client = MongoClient('localhost', 27017)
 db = client.dataquick
 
 args = sys.argv
-
-print args
 
 if len(args) < 3:
   print 'usage: python process.py <schema file> <data file>'
