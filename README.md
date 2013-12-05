@@ -1,6 +1,8 @@
 this repo is to create a mongo database from dataquick fixed file data
 
-to generate everything... fill in data directory with SYMLINKS to the unzipped dataquick flat .txt files (using their original names) and run ./doAll.sh
+TO GENERATE EVERYTHING: 
+1) fill in data directory with SYMLINKS to the unzipped dataquick flat .txt files (using their original names).
+2) run ./doAll.sh
 
 usage:
 python create_schema.py <schema file> <data file>
