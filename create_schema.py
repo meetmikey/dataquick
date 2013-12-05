@@ -29,14 +29,12 @@ from pprint import pprint
 args = sys.argv
 
 if len(args) < 3:
-  print 'usage: python process.py <schema file> <output file> <collection name>'
+  print 'usage: python create_schema.py <schema file> <output file> <mongo collection name>'
   sys.exit()
 
 csvFile = open(args[1] , 'r')
 outFile = open(args[2], 'w')
 collectionName = args[3]
-
-print outFile
 
 schema = {'name' : collectionName, 'fields' : []}
 
@@ -57,12 +55,15 @@ while True:
 
     if name not in ['FILLER', 'CR-LF', 'Total']:
       field = {
-        'name' : name,
+        'name' : name.strip(),
         'width' : int(split[6]),
-        'type' : 'number'
+        'type' : 'integer'
       }
 
-      if split[3] =='varchar':
+      if split[3].strip() == 'numeric':
+        field['type'] = 'float'
+
+      if split[3].strip() =='varchar':
         field['type'] = 'string'
     
       schema['fields'].append(field)

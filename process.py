@@ -33,16 +33,23 @@ totalIndex = 0
 while True:
   line = dataFile.readline()
   if line == '':
-    break  
+    break
   lineIndex = 0
   record = {}
 
   for field in schemaJson['fields']:
     width = field['width']
-    value = line[lineIndex:lineIndex+width-1].strip()
+    value = line[lineIndex:lineIndex+width].strip()
 
-    if field['type'] == 'number':
-      value = float(value)
+    if field['type'] != 'string':
+      if value != '':
+        if field['type'] == 'integer':
+          try:
+            value = int(value)
+          except:
+            value = float(value)
+        elif field['type'] == 'float':
+          value = float(value)
 
     record[field['name']] = value
     lineIndex+=width
