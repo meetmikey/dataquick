@@ -1,5 +1,9 @@
 this repo is to create a mongo database from dataquick fixed file data
 
+INITIATE VIRTUAL ENV
+virtualenv ENV
+source /ENV/bin/activate
+
 TO INSTALL DEPENDENCIES:
 pip install -r requirements.txt
 

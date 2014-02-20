@@ -41,8 +41,8 @@ while True:
     width = field['width']
     value = line[lineIndex:lineIndex+width].strip()
 
-    if field['type'] != 'string':
-      if value != '':
+    if value != '':
+      if field['type'] != 'string':
         if field['type'] == 'integer':
           try:
             value = int(value)
@@ -51,8 +51,8 @@ while True:
         elif field['type'] == 'float':
           value = float(value)
 
-    record[field['name']] = value
-    lineIndex+=width
+      record[field['name']] = value
+      lineIndex+=width
 
   batch.append(record)
   batchIndex += 1
