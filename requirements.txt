@@ -1,2 +1,2 @@
 pymongo==2.6.3
-avro
+avro==1.7.6
