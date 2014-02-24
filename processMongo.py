@@ -27,6 +27,8 @@ def batchDoneCallback(batch):
   print 'running callback'
   if batch and len(batch):
     mongoCollection.insert(batch, w=0)
+  else:
+    print 'length of batch was 0 or undefined'
 
 myParser = DataQuickParser(schemaFile, dataFile)
 myParser.parseFile(batchDoneCallback)

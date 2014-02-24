@@ -1,1 +1,330 @@
-{"fields": [{"width": 12, "type": "integer", "name": "SA_PROPERTY_ID"}, {"width": 12, "type": "integer", "name": "SCM_ID"}, {"width": 2, "type": "string", "name": "MM_STATE_CODE"}, {"width": 24, "type": "string", "name": "MM_MUNI_NAME"}, {"width": 2, "type": "integer", "name": "MM_FIPS_STATE_CODE"}, {"width": 3, "type": "integer", "name": "MM_FIPS_MUNI_CODE"}, {"width": 35, "type": "string", "name": "MM_FIPS_COUNTY_NAME"}, {"width": 12, "type": "integer", "name": "SR_UNIQUE_ID"}, {"width": 12, "type": "integer", "name": "UNIQUE_ID_NOTICE"}, {"width": 1, "type": "string", "name": "RECORD_TYPE"}, {"width": 35, "type": "string", "name": "PARCEL_NBR_RAW"}, {"width": 8, "type": "integer", "name": "RECORDING_DATE"}, {"width": 20, "type": "string", "name": "DOCUMENT_NO"}, {"width": 1, "type": "string", "name": "DOC_TYPE"}, {"width": 8, "type": "integer", "name": "DATE_ORIG_LOAN"}, {"width": 20, "type": "string", "name": "DOC_NBR_ORIG_LOAN"}, {"width": 12, "type": "integer", "name": "ORIG_LOAN_AMT"}, {"width": 50, "type": "string", "name": "TRUSTOR_FIRST_NAME"}, {"width": 25, "type": "string", "name": "TRUSTOR_LAST_NAME"}, {"width": 50, "type": "string", "name": "TRUSTEE_NAME_FIRST"}, {"width": 25, "type": "string", "name": "TRUSTEE_NAME_LAST"}, {"width": 10, "type": "string", "name": "TRUSTEE_HOUSE_NBR"}, {"width": 50, "type": "string", "name": "TRUSTEE_STREET_NAME"}, {"width": 5, "type": "string", "name": "TRUSTEE_UNIT_NBR"}, {"width": 50, "type": "string", "name": "TRUSTEE_CITY"}, {"width": 2, "type": "string", "name": "TRUSTEE_STATE"}, {"width": 5, "type": "string", "name": "TRUSTEE_ZIP"}, {"width": 10, "type": "string", "name": "TRUSTEE_PHONE"}, {"width": 15, "type": "string", "name": "TRUSTEE_SALE_NBR"}, {"width": 12, "type": "integer", "name": "TITLE_COMPANY_CODE"}, {"width": 30, "type": "string", "name": "TITLE_COMPANY_NAME"}, {"width": 12, "type": "integer", "name": "PROCESS_ID"}, {"width": 8, "type": "integer", "name": "FD_DELINQUENT_DATE"}, {"width": 12, "type": "float", "name": "FD_DELINQUENT_AMT"}, {"width": 12, "type": "float", "name": "FD_BALANCE_PRINCIPAL"}, {"width": 50, "type": "string", "name": "FD_BENEFICIARY_NAME_FIRST"}, {"width": 25, "type": "string", "name": "FD_BENEFICIARY_NAME_LAST"}, {"width": 10, "type": "string", "name": "FD_BENEFICIARY_HOUSE_NBR"}, {"width": 50, "type": "string", "name": "FD_BENEFICIARY_STREET_NAME"}, {"width": 5, "type": "string", "name": "FD_BENEFICIARY_UNIT_NBR"}, {"width": 50, "type": "string", "name": "FD_BENEFICIARY_CITY"}, {"width": 2, "type": "string", "name": "FD_BENEFICIARY_STATE"}, {"width": 5, "type": "string", "name": "FD_BENEFICIARY_ZIP"}, {"width": 10, "type": "string", "name": "FD_BENEFICIARY_PHONE"}, {"width": 8, "type": "integer", "name": "FD_NOD_T_AUCT_DATE"}, {"width": 5, "type": "string", "name": "FD_NOD_T_SALE_TIME"}, {"width": 1, "type": "string", "name": "FD_NOD_T_TIME_TYPE"}, {"width": 10, "type": "string", "name": "FD_NOD_T_AUCT_STREET_NO"}, {"width": 50, "type": "string", "name": "FD_NOD_T_AUCT_STREET_NAME"}, {"width": 50, "type": "string", "name": "FD_NOD_T_AUCT_CITY"}, {"width": 12, "type": "float", "name": "FT_AMOUNT_OF_DEFAULT"}, {"width": 12, "type": "float", "name": "FT_BALANCE_PRINCIPAL"}, {"width": 10, "type": "string", "name": "FT_SITE_HOUSE_NBR"}, {"width": 50, "type": "string", "name": "FT_SITE_STREET_NAME"}, {"width": 5, "type": "string", "name": "FT_SITE_UNIT_NBR"}, {"width": 50, "type": "string", "name": "FT_SITE_CITY"}, {"width": 2, "type": "string", "name": "FT_SITE_STATE"}, {"width": 5, "type": "string", "name": "FT_SITE_ZIP"}, {"width": 8, "type": "integer", "name": "FT_NOT_SALE_DATE"}, {"width": 5, "type": "string", "name": "FT_NOT_SALE_TIME"}, {"width": 1, "type": "string", "name": "FT_NOT_TIME_TYPE"}, {"width": 10, "type": "string", "name": "FT_NOT_SALE_STREET_NO"}, {"width": 50, "type": "string", "name": "FT_NOT_SALE_STREET_NAME"}, {"width": 50, "type": "string", "name": "FT_NOT_SALE_CITY"}, {"width": 12, "type": "float", "name": "FT_NTDS_AUCTION_BID_AMOUNT"}], "name": "preforclosure"}
+{
+    "fields": [
+        {
+            "width": 12, 
+            "type": "integer", 
+            "name": "SA_PROPERTY_ID"
+        }, 
+        {
+            "width": 12, 
+            "type": "integer", 
+            "name": "SCM_ID"
+        }, 
+        {
+            "width": 2, 
+            "type": "string", 
+            "name": "MM_STATE_CODE"
+        }, 
+        {
+            "width": 24, 
+            "type": "string", 
+            "name": "MM_MUNI_NAME"
+        }, 
+        {
+            "width": 2, 
+            "type": "integer", 
+            "name": "MM_FIPS_STATE_CODE"
+        }, 
+        {
+            "width": 3, 
+            "type": "integer", 
+            "name": "MM_FIPS_MUNI_CODE"
+        }, 
+        {
+            "width": 35, 
+            "type": "string", 
+            "name": "MM_FIPS_COUNTY_NAME"
+        }, 
+        {
+            "width": 12, 
+            "type": "integer", 
+            "name": "SR_UNIQUE_ID"
+        }, 
+        {
+            "width": 12, 
+            "type": "integer", 
+            "name": "UNIQUE_ID_NOTICE"
+        }, 
+        {
+            "width": 1, 
+            "type": "string", 
+            "name": "RECORD_TYPE"
+        }, 
+        {
+            "width": 35, 
+            "type": "string", 
+            "name": "PARCEL_NBR_RAW"
+        }, 
+        {
+            "width": 8, 
+            "type": "integer", 
+            "name": "RECORDING_DATE"
+        }, 
+        {
+            "width": 20, 
+            "type": "string", 
+            "name": "DOCUMENT_NO"
+        }, 
+        {
+            "width": 1, 
+            "type": "string", 
+            "name": "DOC_TYPE"
+        }, 
+        {
+            "width": 8, 
+            "type": "integer", 
+            "name": "DATE_ORIG_LOAN"
+        }, 
+        {
+            "width": 20, 
+            "type": "string", 
+            "name": "DOC_NBR_ORIG_LOAN"
+        }, 
+        {
+            "width": 12, 
+            "type": "integer", 
+            "name": "ORIG_LOAN_AMT"
+        }, 
+        {
+            "width": 50, 
+            "type": "string", 
+            "name": "TRUSTOR_FIRST_NAME"
+        }, 
+        {
+            "width": 25, 
+            "type": "string", 
+            "name": "TRUSTOR_LAST_NAME"
+        }, 
+        {
+            "width": 50, 
+            "type": "string", 
+            "name": "TRUSTEE_NAME_FIRST"
+        }, 
+        {
+            "width": 25, 
+            "type": "string", 
+            "name": "TRUSTEE_NAME_LAST"
+        }, 
+        {
+            "width": 10, 
+            "type": "string", 
+            "name": "TRUSTEE_HOUSE_NBR"
+        }, 
+        {
+            "width": 50, 
+            "type": "string", 
+            "name": "TRUSTEE_STREET_NAME"
+        }, 
+        {
+            "width": 5, 
+            "type": "string", 
+            "name": "TRUSTEE_UNIT_NBR"
+        }, 
+        {
+            "width": 50, 
+            "type": "string", 
+            "name": "TRUSTEE_CITY"
+        }, 
+        {
+            "width": 2, 
+            "type": "string", 
+            "name": "TRUSTEE_STATE"
+        }, 
+        {
+            "width": 5, 
+            "type": "string", 
+            "name": "TRUSTEE_ZIP"
+        }, 
+        {
+            "width": 10, 
+            "type": "string", 
+            "name": "TRUSTEE_PHONE"
+        }, 
+        {
+            "width": 15, 
+            "type": "string", 
+            "name": "TRUSTEE_SALE_NBR"
+        }, 
+        {
+            "width": 12, 
+            "type": "integer", 
+            "name": "TITLE_COMPANY_CODE"
+        }, 
+        {
+            "width": 30, 
+            "type": "string", 
+            "name": "TITLE_COMPANY_NAME"
+        }, 
+        {
+            "width": 12, 
+            "type": "integer", 
+            "name": "PROCESS_ID"
+        }, 
+        {
+            "width": 8, 
+            "type": "integer", 
+            "name": "FD_DELINQUENT_DATE"
+        }, 
+        {
+            "width": 12, 
+            "type": "float", 
+            "name": "FD_DELINQUENT_AMT"
+        }, 
+        {
+            "width": 12, 
+            "type": "float", 
+            "name": "FD_BALANCE_PRINCIPAL"
+        }, 
+        {
+            "width": 50, 
+            "type": "string", 
+            "name": "FD_BENEFICIARY_NAME_FIRST"
+        }, 
+        {
+            "width": 25, 
+            "type": "string", 
+            "name": "FD_BENEFICIARY_NAME_LAST"
+        }, 
+        {
+            "width": 10, 
+            "type": "string", 
+            "name": "FD_BENEFICIARY_HOUSE_NBR"
+        }, 
+        {
+            "width": 50, 
+            "type": "string", 
+            "name": "FD_BENEFICIARY_STREET_NAME"
+        }, 
+        {
+            "width": 5, 
+            "type": "string", 
+            "name": "FD_BENEFICIARY_UNIT_NBR"
+        }, 
+        {
+            "width": 50, 
+            "type": "string", 
+            "name": "FD_BENEFICIARY_CITY"
+        }, 
+        {
+            "width": 2, 
+            "type": "string", 
+            "name": "FD_BENEFICIARY_STATE"
+        }, 
+        {
+            "width": 5, 
+            "type": "string", 
+            "name": "FD_BENEFICIARY_ZIP"
+        }, 
+        {
+            "width": 10, 
+            "type": "string", 
+            "name": "FD_BENEFICIARY_PHONE"
+        }, 
+        {
+            "width": 8, 
+            "type": "integer", 
+            "name": "FD_NOD_T_AUCT_DATE"
+        }, 
+        {
+            "width": 5, 
+            "type": "string", 
+            "name": "FD_NOD_T_SALE_TIME"
+        }, 
+        {
+            "width": 1, 
+            "type": "string", 
+            "name": "FD_NOD_T_TIME_TYPE"
+        }, 
+        {
+            "width": 10, 
+            "type": "string", 
+            "name": "FD_NOD_T_AUCT_STREET_NO"
+        }, 
+        {
+            "width": 50, 
+            "type": "string", 
+            "name": "FD_NOD_T_AUCT_STREET_NAME"
+        }, 
+        {
+            "width": 50, 
+            "type": "string", 
+            "name": "FD_NOD_T_AUCT_CITY"
+        }, 
+        {
+            "width": 12, 
+            "type": "float", 
+            "name": "FT_AMOUNT_OF_DEFAULT"
+        }, 
+        {
+            "width": 12, 
+            "type": "float", 
+            "name": "FT_BALANCE_PRINCIPAL"
+        }, 
+        {
+            "width": 10, 
+            "type": "string", 
+            "name": "FT_SITE_HOUSE_NBR"
+        }, 
+        {
+            "width": 50, 
+            "type": "string", 
+            "name": "FT_SITE_STREET_NAME"
+        }, 
+        {
+            "width": 5, 
+            "type": "string", 
+            "name": "FT_SITE_UNIT_NBR"
+        }, 
+        {
+            "width": 50, 
+            "type": "string", 
+            "name": "FT_SITE_CITY"
+        }, 
+        {
+            "width": 2, 
+            "type": "string", 
+            "name": "FT_SITE_STATE"
+        }, 
+        {
+            "width": 5, 
+            "type": "string", 
+            "name": "FT_SITE_ZIP"
+        }, 
+        {
+            "width": 8, 
+            "type": "integer", 
+            "name": "FT_NOT_SALE_DATE"
+        }, 
+        {
+            "width": 5, 
+            "type": "string", 
+            "name": "FT_NOT_SALE_TIME"
+        }, 
+        {
+            "width": 1, 
+            "type": "string", 
+            "name": "FT_NOT_TIME_TYPE"
+        }, 
+        {
+            "width": 10, 
+            "type": "string", 
+            "name": "FT_NOT_SALE_STREET_NO"
+        }, 
+        {
+            "width": 50, 
+            "type": "string", 
+            "name": "FT_NOT_SALE_STREET_NAME"
+        }, 
+        {
+            "width": 50, 
+            "type": "string", 
+            "name": "FT_NOT_SALE_CITY"
+        }, 
+        {
+            "width": 12, 
+            "type": "float", 
+            "name": "FT_NTDS_AUCTION_BID_AMOUNT"
+        }
+    ], 
+    "name": "preforeclosure"
+}
