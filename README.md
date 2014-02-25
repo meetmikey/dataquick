@@ -1,22 +1,19 @@
-this repo is to create a mongo database from dataquick fixed file data
+Scripts to create a mongo database or avro file from dataquick fixed width files
 
-INITIATE VIRTUAL ENV
-virtualenv ENV
-source /ENV/bin/activate
+*INITIATE VIRTUAL ENV*
++ virtualenv ENV
++ source /ENV/bin/activate
 
-TO INSTALL DEPENDENCIES:
-pip install -r requirements.txt
+*TO INSTALL DEPENDENCIES*
++ pip install -r requirements.txt
 
-TO GENERATE EVERYTHING: 
-1) fill in data directory with SYMLINKS to the unzipped dataquick flat .txt files (using their original names).
-2) run ./doAll.sh
+*SCHEMAS*
++ /data/fixedWidth directory contains relevant schemas needed for processing dataquick files
++ /data/avroSchema directory contains relevant schemas needed for outputing avro files
++ Schemas are generated programatically from csv of layout files. To generate a schema see createFixedWidthSchema.py or createAvroSchema.py
 
-usage:
-python create_schema.py <schema file> <data file>
-python create_schema.py <schema file> <output file> <mongo collection name>
+*TO GENERATE SINGLE MONGO COLLECTION*
++ python processMongo.py <fixed width schema file path> <dataquick file path> <collection name>
 
-sample to process the dataquick fixedwith file using the schema
-python process.py data/assessor.json data/SIDEKICK_ASSR_TEST.txt
-
-sample to create a schema file from csv:
-python create_schema.py ~/Dropbox/dataquick\ sample/ASSESSOR/Sidekick\ Labs\ Assessor\ Layout\ With\ Geocodes.csv ~/Dropbox/dataquick\ sample/ASSESSOR/assessor.json assessor
+*TO GENERATE AVRO FILE*
++ python processAvro.py <fixed width schema file path> <data file> <avro schema file> <avro output file>'

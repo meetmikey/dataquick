@@ -9,12 +9,12 @@ import sys
 #connect to db
 client = MongoClient('localhost', 27017)
 
-db = client.dataquick_test
+db = client.dataquick
 
 args = sys.argv
 
 if len(args) < 4:
-  print 'usage: python process.py <schema file> <data file> <collection name>'
+  print 'usage: python processMongo.py <fixed width schema file> <data file> <collection name>'
   sys.exit()
 
 schemaFile = args[1]

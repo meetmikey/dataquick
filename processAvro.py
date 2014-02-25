@@ -10,7 +10,7 @@ args = sys.argv
 
 
 if len(args) < 5:
-  print 'usage: python process.py <fixed width schema file> <data file> <avro schema file> <avro output file>'
+  print 'usage: python processAvro.py <fixed width schema file> <data file> <avro schema file> <avro output file>'
   sys.exit()
 
 fwSchemaFile = args[1]
