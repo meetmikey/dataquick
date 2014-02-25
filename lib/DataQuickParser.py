@@ -5,10 +5,7 @@ class DataQuickParser:
 
   pp = pprint.PrettyPrinter(indent=4)
 
-  #constants
-  BATCH_SIZE = 1000
-
-  def __init__ (self, fileSchemaPath, dataPath):
+  def __init__ (self, fileSchemaPath, dataPath, batchSize):
     print fileSchemaPath
     print dataPath
 
@@ -17,6 +14,7 @@ class DataQuickParser:
     schema = schemaFile.read()
     self.schema = json.loads(schema)
     self.dataFile = dataFile
+    self.batchSize = batchSize
 
 
   def parseFile (self, batchDoneCallback):
@@ -28,6 +26,7 @@ class DataQuickParser:
       line = self.dataFile.readline()
 
       if line == '':
+        batchDoneCallback(batch)
         break
 
       lineIndex = 0
@@ -53,7 +52,7 @@ class DataQuickParser:
       batch.append(record)
       batchIndex += 1
 
-      if batchIndex >= self.BATCH_SIZE:
+      if batchIndex >= self.batchSize:
         self.totalIndex += batchIndex
         print 'about to callback batch from parseFile', self.totalIndex
         batchDoneCallback(batch)

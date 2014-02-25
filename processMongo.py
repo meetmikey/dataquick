@@ -30,5 +30,5 @@ def batchDoneCallback(batch):
   else:
     print 'length of batch was 0 or undefined'
 
-myParser = DataQuickParser(schemaFile, dataFile)
+myParser = DataQuickParser(schemaFile, dataFile, 1000)
 myParser.parseFile(batchDoneCallback)
