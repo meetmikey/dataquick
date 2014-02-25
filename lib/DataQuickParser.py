@@ -46,7 +46,9 @@ class DataQuickParser:
             elif field['type'] == 'float':
               value = float(value)
 
-        record[field['name']] = value
+        if value != '':
+          record[field['name']] = value
+
         lineIndex+=width
 
       batch.append(record)
