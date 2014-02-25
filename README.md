@@ -13,7 +13,7 @@ Scripts to create a mongo database or avro file from dataquick fixed width files
 + Schemas are generated programatically from csv of layout files. To generate a schema see createFixedWidthSchema.py or createAvroSchema.py
 
 *TO GENERATE SINGLE MONGO COLLECTION*
-+ python processMongo.py <fixed width schema file path> <dataquick file path> <collection name>
++ python processMongo.py &lt;fixed width schema file path&gt; &lt;dataquick file path&gt; &lt;collection name&gt;
 
 *TO GENERATE AVRO FILE*
-+ python processAvro.py <fixed width schema file path> <data file> <avro schema file> <avro output file>'
++ python processAvro.py &lt;fixed width schema file path&gt; &lt;data file&gt; &lt;avro schema file&gt; &lt;avro output file&gt;
