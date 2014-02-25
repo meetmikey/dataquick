@@ -43,22 +43,19 @@ class AvroIO:
     # Close to ensure writing is complete
     self.dfWriter.close()
   
-  def read_avro_file(self):
-      # Create a 'record' (datum) reader
-      # You can pass an 'expected=SCHEMA' kwarg
-      # if you want it to expect a particular
-      # schema (Strict)
-      rec_reader = io.DatumReader()
-   
-      # Create a 'data file' (avro file) reader
-      df_reader = datafile.DataFileReader(
-                      open(OUTFILE_NAME),
-                      rec_reader
-                  )
-   
-      # Read all records stored inside
-      for record in df_reader:
-          print record['name'], record['age']
-          print record['address'], record['value']
-          # Do whatever read-processing you wanna do
-          # for each record here ...
+  def readAvroFile(self, fileName):
+    # Create a 'record' (datum) reader
+    # You can pass an 'expected=SCHEMA' kwarg
+    # if you want it to expect a particular
+    # schema (Strict)
+    recReader = io.DatumReader()
+ 
+    # Create a 'data file' (avro file) reader
+    dfReader = datafile.DataFileReader(
+                    open(OUTFILE_NAME),
+                    rec_reader
+                )
+ 
+    # Read all records stored inside
+    for record in df_reader:
+      print record

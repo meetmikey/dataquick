@@ -1,5 +1,6 @@
 DS_STORE
 .DS_STORE
-data/*.txt
+data/testData/*.txt
+data/avro/
 lib/*.pyc
 ENV/
