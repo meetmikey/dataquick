@@ -25,7 +25,7 @@ class DataQuickParser:
     while True:
       line = self.dataFile.readline()
 
-      if line == ''  or self.totalIndex > 300:
+      if line == '':
         batchDoneCallback(batch)
         allDoneCallback()
         break
