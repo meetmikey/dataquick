@@ -22,11 +22,14 @@ avro = AvroIO(avroSchemaFile, avroOutputFile)
 avro.initiateAvroFile()
 
 def batchDoneCallback(batch):
-  print 'running callback'
   if batch and len(batch):
     avro.writeDatumToAvroFile(batch[0])
   else:
     print 'length of batch was 0 or undefined'
 
+def allDoneCallback():
+  print 'all done, closing file'
+  avro.closeAvroFile()
+
 myParser = DataQuickParser(fwSchemaFile, dataFile, 1)
-myParser.parseFile(batchDoneCallback)
+myParser.parseFile(batchDoneCallback, allDoneCallback)

@@ -1,3 +1,4 @@
+import avro
 from avro import schema, datafile, io
 import json
 
@@ -51,10 +52,7 @@ class AvroIO:
     recReader = io.DatumReader()
  
     # Create a 'data file' (avro file) reader
-    dfReader = datafile.DataFileReader(
-                    open(OUTFILE_NAME),
-                    rec_reader
-                )
+    dfReader = datafile.DataFileReader(open(fileName), recReader)
  
     # Read all records stored inside
     for record in df_reader:

@@ -17,7 +17,7 @@ class DataQuickParser:
     self.batchSize = batchSize
 
 
-  def parseFile (self, batchDoneCallback):
+  def parseFile (self, batchDoneCallback, allDoneCallback):
     self.totalIndex = 0
     batch = []
     batchIndex = 0
@@ -25,8 +25,9 @@ class DataQuickParser:
     while True:
       line = self.dataFile.readline()
 
-      if line == '':
+      if line == ''  or self.totalIndex > 300:
         batchDoneCallback(batch)
+        allDoneCallback()
         break
 
       lineIndex = 0
