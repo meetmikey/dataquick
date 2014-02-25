@@ -1,0 +1,194 @@
+,,,,,,,,
+Field Number,Field Name,ANSI Standard Data Type,SQL Server Data Type,Precision,Scale,Length,Empty Values,Definition
+1,SA_PROPERTY_ID,integer,int,10,0,12,No,Unique DataQuick primary key identifier assigned to a property.
+2,SA_SCM_ID,integer,int,10,0,12,No,Internal identification number assigned to every jurisdiction
+3,MM_STATE_CODE,character varying,varchar,2,n/a,2,No,The postal standard abbreviation for the state.  
+4,MM_MUNI_NAME,character varying,varchar,24,n/a,24,No,The full name of the jurisdiction.  
+5,MM_FIPS_STATE_CODE,No Equivalent,tinyint,3,0,5,No,Federal Information Processing Standards (FIPS) code for the state.  
+6,MM_FIPS_MUNI_CODE,smallint,smallint,5,0,7,No,Federal Information Processing Standards (FIPS) code for the county.  
+7,MM_FIPS_COUNTY_NAME,character varying,varchar,35,n/a,35,No,The county name associated with the Federal Information Processing Standards (FIPS) county code.  
+8,SA_PARCEL_NBR_PRIMARY,character varying,varchar,35,n/a,35,Yes,"The primary jurisdictional identifier for a property. Where multiple identifiers are available from the jurisdiction, the SA_PARCEL_NBR_PRIMARY is the preferred and/or most easily searchable per the asssessor's office. For counties where recorder's data is available, an effort is made to have the SA_PARCEL_NBR_PRIMARY be the same identifier as is commonly found on the documents."
+9,SA_PARCEL_NBR_REFERENCE,character varying,varchar,35,n/a,35,Yes,"In addition to the primary parcel, another identifier recognized by the jurisdiction as a means to refer to a property. This number may not be unique."
+10,SA_PARCEL_ACCOUNT_NBR,character varying,varchar,35,n/a,35,Yes,"An internal jurisdiction identifier used to identify a property. This number is often associated with the owner of record as opposed to a parcel of land. In cases where the account number refers to ownership, the value changes often and is not best qualified to identify a property long term."
+11,SA_PARCEL_NBR_ALT,character varying,varchar,35,n/a,35,Yes,"In addition to the primary parcel number, an alternate property identifier. The SA_PARCEL_NBR_ALT is recognizable by the jurisdiction, but not necessarily unique."
+12,SA_PARCEL_NBR_PREVIOUS,character varying,varchar,35,n/a,35,Yes,Stores the previous SA_PARCEL_NBR_PRIMARY after a parcel number conversion occurs.
+13,SA_PARCEL_NBR_CHANGE_YR,smallint,smallint,5,0,7,Yes,Indicates the year in which the most recent parcel conversion took place.
+14,SA_YR_APN_ADDED,smallint,smallint,5,0,7,Yes,Vendor provided year indicating when the APN was added
+15,SA_OWNER_1,character varying,varchar,50,n/a,50,Yes,The full unparsed primary owner's name.  The primary owner is the individual or entity who holds the most interest in a property. Married couples are considered one entity.
+16,SA_OWNER_1_FIRST,character varying,varchar,50,n/a,50,Yes,The first name of the primary owner of the property
+17,SA_OWNER_1_MID,character varying,varchar,20,n/a,20,Yes,The middle name of the primary owner of a property
+18,SA_OWNER_1_LAST,character varying,varchar,50,n/a,50,Yes,The primary owner's last name.  If the primary owner is a company the company name will be present in this field and SA_OWNER_1_FIRST will be blank.
+19,SA_OWNER_1_SUF,character varying,varchar,5,n/a,5,Yes,"The suffix associated with the primary owner of the property (Jr. III, etc)."
+20,SA_OWNER_1_SP_FIRST,character varying,varchar,20,n/a,20,Yes,The first name of the primary property owner's spouse
+21,SA_OWNER_1_SP_MID,character varying,varchar,20,n/a,20,Yes,The middle name of the primary property owner's spouse
+22,SA_OWNER_1_SP_SUF,character varying,varchar,5,n/a,5,Yes,"The suffix of the primary property owner's spouse (Jr. III, etc)."
+23,SA_OWNER_1_GROUP,character varying,varchar,15,n/a,15,Yes,Name of other primary group members or individual primary property owners. This group or individual will not be the spouse of the primary owner
+24,SA_OWNER_1_ET_FLAG,character varying,varchar,1,n/a,1,Yes,"Identifies that there are more than 3 owners contained within the primary owner field (ETAL) or that the primary owner has a spouse (ETUX), or both."
+25,SA_OWNER_1_TRUST_FLAG,character varying,varchar,1,n/a,1,Yes,Flag that indicates if the primary property owner is a trust.
+26,SA_OWNER_1_TYPE,character varying,varchar,1,n/a,1,Yes,"Indicates if the primary owner is an individual, a company or deceased."
+27,SA_OWNER_2,character varying,varchar,50,n/a,50,Yes,The full unparsed name of secondary property owner.
+28,SA_OWNER_2_FIRST,character varying,varchar,50,n/a,50,Yes,The first name of the secondary owner of the property
+29,SA_OWNER_2_MID,character varying,varchar,20,n/a,20,Yes,The middle name of the secondary owner of the property
+30,SA_OWNER_2_LAST,character varying,varchar,20,n/a,20,Yes,The secondary owner's last name.  If the secondary owner is a company the company name will be present in this field and SA_OWNER_2_FIRST will be blank.
+31,SA_OWNER_2_SUF,character varying,varchar,5,n/a,5,Yes,"The suffix associated with the secondary owner of the property (Jr. III, etc)."
+32,SA_OWNER_2_SP_FIRST,character varying,varchar,20,n/a,20,Yes,The first name of the secondary owner's spouse.
+33,SA_OWNER_2_SP_MID,character varying,varchar,20,n/a,20,Yes, The middle name of the secondary owner's spouse.
+34,SA_OWNER_2_SP_SUF,character varying,varchar,5,n/a,5,Yes,"The suffix of the secondary property owner's spouse (Jr. III, etc)."
+35,SA_OWNER_2_GROUP,character varying,varchar,15,n/a,15,Yes,Name of other secondary group members or individual secondary property owners. This group or individual will not be the spouse of the secondary owner
+36,SA_OWNER_2_ET_FLAG,character varying,varchar,1,n/a,1,Yes,"Identifies that there are more than 3 owners contained within the secondary owner field (ETAL) or that the secondary owner has a spouse (ETUX), or both."
+37,SA_OWNER_2_TRUST_FLAG,character varying,varchar,1,n/a,1,Yes,Flag that indicates if the secondary property owner is a trust.
+38,SA_OWNER_2_TYPE,character varying,varchar,1,n/a,1,Yes,"Indicates if the secondary owner is an individual, a company or deceased."
+39,SA_OWNERSHIP_STATUS_CODE,character varying,varchar,2,n/a,2,Yes,Indicates the ownership vesting type. Generally a relationship between owners or type of entity.
+40,SA_COMPANY_FLAG,character varying,varchar,1,n/a,1,Yes,Indicates if the property is owned by a non-individual entity.  
+41,SA_SITE_HOUSE_NBR,character varying,varchar,20,n/a,20,Yes,The Site Address House Number
+42,SA_SITE_FRACTION,character varying,varchar,10,n/a,10,Yes,"The Site Address house number fraction (1/2, etc)."
+43,SA_SITE_DIR,character varying,varchar,2,n/a,2,Yes,The pre directional  of the site address.
+44,SA_SITE_STREET_NAME,character varying,varchar,40,n/a,40,Yes,The Site Address Street Name.
+45,SA_SITE_SUF,character varying,varchar,4,n/a,4,Yes,The Site Address Street Name Suffix.
+46,SA_SITE_POST_DIR,character varying,varchar,2,n/a,2,Yes,The post-directional of the site address.
+47,SA_SITE_UNIT_PRE,character varying,varchar,10,n/a,10,Yes,The Site Address Unit Number Prefix.
+48,SA_SITE_UNIT_VAL,character varying,varchar,6,n/a,6,Yes,The Site Address Unit Number.
+49,SA_SITE_CITY,character varying,varchar,30,n/a,30,Yes,The Site Address City Name
+50,SA_SITE_STATE,character varying,varchar,2,n/a,2,No,The Site State Code
+51,SA_SITE_ZIP,integer,int,10,0,12,Yes,The Site Address Zip Code.
+52,SA_SITE_PLUS_4,smallint,smallint,5,0,7,Yes,TheSite Address Zip  plus 4 Code.
+53,SA_SITE_CRRT,character varying,varchar,4,n/a,4,Yes,"Site Address Postal Carrier Route. A Carrier Route includes city routes, rural routes, highway contract routes, Post Office™ box sections and general delivery units."
+54,SA_MAIL_HOUSE_NBR,character varying,varchar,20,n/a,20,Yes,The Mailing Address House Number
+55,SA_MAIL_FRACTION,character varying,varchar,10,n/a,10,Yes,"The Mailing Address house number fraction (1/2, etc)."
+56,SA_MAIL_DIR,character varying,varchar,2,n/a,2,Yes,The pre-directional of the mailing address. 
+57,SA_MAIL_STREET_NAME,character varying,varchar,50,n/a,50,Yes,The Mailing Address Street Name. 
+58,SA_MAIL_SUF,character varying,varchar,4,n/a,4,Yes,The Mailing Address Street Name Suffix.
+59,SA_MAIL_POST_DIR,character varying,varchar,2,n/a,2,Yes,The post-directional of the mailing address.
+60,SA_MAIL_UNIT_PRE,character varying,varchar,10,n/a,10,Yes,The Mailing Address Unit Number Prefix.
+61,SA_MAIL_UNIT_VAL,character varying,varchar,6,n/a,6,Yes,The Mailing Address Unit Number.
+62,SA_MAIL_CITY,character varying,varchar,50,n/a,50,Yes,The Mailing Address City Name
+63,SA_MAIL_STATE,character varying,varchar,2,n/a,2,Yes,The Mailing Address State Name.
+64,SA_MAIL_ZIP,integer,int,10,0,12,Yes,The Mailing Address Zip Code.
+65,SA_MAIL_PLUS_4,smallint,smallint,5,0,7,Yes,The Mailing Address Zip plus 4 Code.
+66,SA_MAIL_CRRT,character varying,varchar,4,n/a,4,Yes,"The Mailing Address Postal Carrier Route. A Carrier Route includes city routes, rural routes, highway contract routes, Post Office™ box sections and general delivery units."
+67,SA_SITE_MAIL_SAME,character varying,varchar,1,n/a,1,Yes,"Indicates if the site and mail address are the same, Owner Occupied.  "
+68,SA_LGL_DSCRPTN,character varying,varchar,255,n/a,255,Yes,A legally acceptable description of real property that is sufficient to locate and identify a property.  Not a metes and bounds description.
+69,SA_LOT_NBR_1,character varying,varchar,6,n/a,6,Yes,The primary or first lot number from the legal description for the property. Usually refers to a portion of the subdivision.
+70,SA_LOT_NBR_2,character varying,varchar,6,n/a,6,Yes,"Additional lot, considered secondary lot."
+71,SA_LOT_NBR_3,character varying,varchar,6,n/a,6,Yes," Additional lot, considered third lot."
+72,SA_BLK_NBR_1,character varying,varchar,5,n/a,5,Yes,The first block number present in the legal description
+73,SA_BLK_NBR_2,character varying,varchar,5,n/a,5,Yes,The second block numberr present in the legal description
+74,SA_TOWNSHIP,character varying,varchar,3,n/a,3,Yes,"Indicates the township in which the property lies per the Government Rectangular Survey.  A township consists of six square miles and contains thirty-six sections, each one square mile."
+75,SA_RANGE,character varying,varchar,3,n/a,3,Yes,"Indicates the range in which the property lies per the Government Rectangular Survey.  A range consists of a six mile wide row of sections, or 1/6 of a township."
+76,SA_SECTION,character varying,varchar,2,n/a,2,Yes,Indicates the section in which the property lies per the Government Rectangular Survey.  A section consists of one square mile (640 acres)
+77,SA_QUARTER,character varying,varchar,2,n/a,2,Yes,Identifies the quarter section or half-section wherein the property lies per the Government Rectanglular Survey.   A quarter section contains 160 acres.
+78,SA_QUARTER_QUARTER,character varying,varchar,4,n/a,4,Yes,Identifies the quarter or half of the quarter sectionwherein the property lies per the Government Rectanglular Survey.  A quarter quarter section consists of 40 acres.
+79,SA_SUBDIVISION,character varying,varchar,30,n/a,30,Yes, Indicates the subdivision in which the property lies
+80,SA_TRACT_NBR,integer,int,10,0,12,Yes,The tract number as present in the legal description
+81,SA_LGL_UNIT,character varying,varchar,10,n/a,10,Yes,The legal unit number present in the legal description
+82,USE_CODE_STD,character varying,varchar,4,n/a,4,Yes,The DataQuick property use type code mapped to the jurisdictional use code.
+83,USE_CODE_MUNI,character varying,varchar,6,n/a,6,Yes,The jurisdiction-specfic property use type indicator.  
+84,SA_ZONING,character varying,varchar,13,n/a,13,Yes,"The zoning code assigned to a property by a county/city/other government bureau which defines the allowed size, type, structure, nature, and use of property and/or buildings.  This code is not standardized and is subjective to the specific local government regulation."
+85,ASSR_YEAR,character varying,varchar,4,n/a,4,Yes,"The year of the assessment provided by the jurisdictional Assessor Office.  Assessments are not necessarily run every year, and sometimes assessments are for the year prior and sometimes assessments are for the year following."
+86,SA_VAL_ASSD,integer,int,10,0,12,Yes,A tax assessor's determination of the value of the property in order to calculate the tax amount owed.
+87,SA_VAL_ASSD_LAND,integer,int,10,0,12,Yes,The value of the land that is taxed by the assessor.
+88,SA_VAL_ASSD_IMPRV,integer,int,10,0,12,Yes, The value of the improvements that are taxed by the assessor.
+89,SA_IMPRV_PCT,numeric,numeric,5,2,8,Yes,The percent of total assessed value represented by improvements. 
+90,SA_APPRAISE_YR,smallint,smallint,5,0,7,Yes,Year for the corresponding SA_APPRAISE_VAL.
+91,SA_YR_LAND_APPRAISE,smallint,smallint,5,0,7,Yes,Year in which the last land appraisal occurred
+92,SA_APPRAISE_VAL,integer,int,10,0,12,Yes,"Assessor provided appraisal value, used in determining property tax values"
+93,SA_VAL_APPRAISE_LAND,integer,int,10,0,12,Yes,The assessor's appraised value of the land.
+94,SA_VAL_APPRAISE_IMPRV,integer,int,10,0,12,Yes,The assessor's appraised value of the improvement(s).
+95,SA_IMPRV_PCT_APPRAISE,numeric,numeric,5,2,8,Yes,The percent of total appraisal value represented by improvements.  
+96,SA_VAL_MARKET,integer,int,10,0,12,Yes,Market value as determined by assessor.
+97,SA_VAL_MARKET_LAND,integer,int,10,0,12,Yes,Market value of land as determined by assessor.
+98,SA_VAL_MARKET_IMPRV,integer,int,10,0,12,Yes,Market value of improvements as determined by assessor.
+99,SA_IMPRV_PCT_MRKT,numeric,numeric,5,2,8,Yes,The percent of total market value represented by improvements.  
+100,SA_EXEMP_FLAG_1,character varying,varchar,1,n/a,1,Yes,"Indicates a ""homeowner"" tax exemption, an assessor tax exemption for a homeowner occupant"
+101,SA_EXEMP_VAL_1,integer,int,10,0,12,Yes,"The ""homeowner"" tax exemption amount corresponding with SA_EXEMP_FLAG_1 tax exemption for homeowner occupant."
+102,SA_EXEMP_FLAG_2,character varying,varchar,1,n/a,1,Yes,"Indicates a ""disabled"" tax exemption, an assessor tax exemption for a disabled homeowner."
+103,SA_EXEMP_VAL_2,integer,int,10,0,12,Yes,"The ""disabled"" tax exemption amount corresponding with SA_EXEMP_FLAG_2 tax exemption for disabled homeowner."
+104,SA_EXEMP_FLAG_3,character varying,varchar,1,n/a,1,Yes,"Indicates a ""senior"" tax exemption, an assessor tax exemption exists for a senior homeowner."
+105,SA_EXEMP_VAL_3,integer,int,10,0,12,Yes,"The ""senior"" tax exemption amount corresponding with SA_EXEMP_FLAG_3 tax exemption for senior homeowner."
+106,SA_EXEMP_FLAG_4,character varying,varchar,1,n/a,1,Yes,"Indicates a ""veteran"" tax exemption, an assessor tax exemption exists for a veteran homeowner."
+107,SA_EXEMP_VAL_4,integer,int,10,0,12,Yes,"The ""veteran"" tax exemption amount corresponding with SA_EXEMP_FLAG_4 tax exemption for veteran homeowner."
+108,SA_EXEMP_FLAG_5,character varying,varchar,1,n/a,1,Yes,"Indicates a ""widow"" tax exemption, an assessor tax exemption exists for a widow homeowner."
+109,SA_EXEMP_VAL_5,integer,int,10,0,12,Yes,"The ""widow"" tax exemption amount corresponding with SA_EXEMP_FLAG_5 tax exemption for widow homeowner."
+110,SA_EXEMP_FLAG_6,character varying,varchar,1,n/a,1,Yes,"Indicates an ""other"" tax exemption, an assessor tax exemption exists for other undefined status."
+111,SA_EXEMP_VAL_6,integer,int,10,0,12,Yes,"The ""other"" tax exemption amount corresponding with SA_EXEMP_FLAG_6 tax exemption for other undefined exemption status."
+112,SA_VAL_FULL_CASH,integer,int,10,0,12,Yes,The amount of cash or its equivalent that the property would bring if exposed for sale in the open market.
+113,SA_VAL_ASSD_PREV,integer,int,10,0,12,Yes,Previous assessed value of the property.
+114,TAXYEAR,character varying,varchar,4,n/a,4,Yes,The year for which the property taxes are paid.
+115,SA_TAX_VAL,numeric,numeric,9,2,12,Yes,Indicates the property tax amount billed to the owner of the property
+116,SA_TAX_YEAR_DELINQ,smallint,smallint,5,0,7,Yes,"Indicates the most recent year of tax deliquency.  Not the latest year that a deliquency existed, but rather the last year for which taxes are delinquent."
+117,LAST_ASSR_UPD,timestamp,datetime,23,3,8,Yes,The date that the last full Assessor update file was received from the jurisdictional Assessor's Office.
+118,LAST_TAX_UPDT,timestamp,datetime,23,3,8,Yes,The date that the last tax update file was received from the jurisdictional Assessor's office.
+119,SA_ADDTNS_SQFT,smallint,smallint,5,0,7,Yes,The identified addition's square feet.
+120,SA_ARCHITECTURE_CODE,character varying,varchar,1,n/a,1,Yes,Indicates the architectural style of the structure.
+121,SA_ATTIC_SQFT,smallint,smallint,5,0,7,Yes,"Total area, in square feet, of the attic present on the property"
+122,SA_BLDG_CODE,character varying,varchar,2,n/a,2,Yes,This field contains a 2 character code that indicates the structure type of the property
+123,SA_BLDG_SHAPE_CODE,character varying,varchar,2,n/a,2,Yes,Code indicating the shape of the building. 
+124,SA_BLDG_SQFT,smallint,smallint,5,0,7,Yes,The square footage of the building/structure on the property.
+125,SA_BSMT_2_CODE,character varying,varchar,2,n/a,2,Yes,"Code indicating the state, use or type of the basement on the property"
+126,SA_BSMT_FIN_SQFT,smallint,smallint,5,0,7,Yes,The square footage of the finished portion of the basement on the property.
+127,SA_BSMT_UNFIN_SQFT,smallint,smallint,5,0,7,Yes,The square footage of the unfinished portion of the basement on the property.
+128,SA_CONDITION_CODE,numeric,numeric,2,1,4,Yes,Code indicating the state/condition of a particular property
+129,SA_CONSTRUCTION_CODE,character varying,varchar,2,n/a,2,Yes,Indicates the material used in the construction of the framework for the structure on the  property.
+130,SA_CONSTRUCTION_QLTY,numeric,numeric,3,1,5,Yes,An appraiser rating indicating the quality of construction of the structure on the property. 
+131,SA_COOL_CODE,character varying,varchar,2,n/a,2,Yes,"Code indicating the presence/absence of a cooling mechanism in a particular property. It, alternatively, can also indicate the type of the available cooling mechanism"
+132,SA_EXTERIOR_1_CODE,character varying,varchar,2,n/a,2,Yes,Code indicating the primary material used as an exterior sheathing/cover for the structure on the property
+133,SA_FIN_SQFT_1,integer,int,10,0,12,Yes,The sum total of the area covered by ground floors of all the buildings on the property.
+134,SA_FIN_SQFT_2,integer,int,10,0,12,Yes,The sum total of the area covered by second floors of all the buildings on the property.
+135,SA_FIN_SQFT_3,integer,int,10,0,12,Yes,The sum total of the area covered by third floors of all the buildings on the property.
+136,SA_FIN_SQFT_4,integer,int,10,0,12,Yes,The sum total of the area covered by fourth floors of all the buildings on the property.
+137,SA_FIN_SQFT_TOT,integer,int,10,0,12,Yes,Total finished area of all the buildings on the property
+138,SA_FIREPLACE_CODE,character varying,varchar,2,n/a,2,Yes,Contains a 2 character code that indicates the presence/absence of a fireplace. It also indicates the type of fireplace the property contains.
+139,SA_FOUNDATION_CODE,character varying,varchar,2,n/a,2,Yes,Indicates the type of foundantion for the primary structure on the property
+140,SA_GARAGE_CARPORT,character varying,varchar,3,n/a,3,Yes,"Indicates the presence of a garage or carport, if it is attached or detached and the number of spaces.  "
+141,SA_GRG_1_CODE,character varying,varchar,2,n/a,2,Yes,Indicates the type of the primary garage.  
+142,SA_GRG_SQFT_1,smallint,smallint,5,0,7,Yes,Indicates the total square footage of the primary garage on the property.
+143,SA_HEAT_CODE,character varying,varchar,2,n/a,2,Yes,Indicates the primary heating system or method on a property
+144,SA_HEAT_SRC_FUEL_CODE,character varying,varchar,2,n/a,2,Yes,Indicates the primary heating fuel used.  
+145,SA_LOT_DEPTH,smallint,smallint,5,0,7,Yes,"Indicates the depth of the lot, in feet."
+146,SA_LOT_WIDTH,smallint,smallint,5,0,7,Yes,The number of feet at the front of the property.  
+147,SA_LOTSIZE,numeric,numeric,14,4,19,Yes,The lot size expressed in square feet.  
+148,SA_NBR_BATH,numeric,numeric,5,2,8,Yes,"Indicates the total number of baths for all structures on a property. This field is calculated using the number of occurs of discrete bathrooms on a property. For example, a property containing a one quarter bath, half bath and full bath would have an SA_NBR_BATH value of three."
+149,SA_NBR_BATH_1QTR,smallint,smallint,5,0,7,Yes,Indicates the number of one-quarter baths for all structures on a property. A one-quarter bath is defined as having a tiolet only
+150,SA_NBR_BATH_HALF,smallint,smallint,5,0,7,Yes,Indicates the number of half baths for all structures on a property. A half bath is defined as having a sink and a toilet only
+151,SA_NBR_BATH_3QTR,smallint,smallint,5,0,7,Yes,"Indicates the number of three quarter baths for all structures on a property. A three-quarters bath is defined as having a toilet, a sink and a shower."
+152,SA_NBR_BATH_FULL,smallint,smallint,5,0,7,Yes,"Indicates the number of full baths for all structures on a property. A full bath is defined as havingt a toilet, a sink, and a bathtub."
+153,SA_NBR_BATH_BSMT_HALF,smallint,smallint,5,0,7,Yes,Indicates the number of half-baths in the basement for all structures on a property. A half-bath is defined as having a toilet and a sink.
+154,SA_NBR_BATH_BSMT_FULL,smallint,smallint,5,0,7,Yes,"Indicates the number of full baths in the basement for all structures on a property. A full bath is defined as having a toilet, a sink, and a bathtub."
+155,SA_NBR_BATH_DQ,numeric,numeric,8,2,11,Yes,"Indicates the number of baths in real estate terms. For example, a property containing a one quarter bath, half bath and full bath would have an SA_NBR_BATH value of 1.75.  "
+156,SA_NBR_BEDRMS,smallint,smallint,5,0,7,Yes,Indicates the number of bedrooms for all structures on the property.
+157,SA_NBR_RMS,smallint,smallint,5,0,7,Yes,Indicates the total number of rooms for all structures on the property
+158,SA_NBR_STORIES,No Equivalent,tinyint,3,0,5,Yes,Indicates the total number of stories for all structures on the property
+159,SA_NBR_UNITS,smallint,smallint,5,0,7,Yes,Indicates the total number of units for all structures on the property. This field will include the number of apartment or commercial units.
+160,SA_PATIO_PORCH_CODE,character varying,varchar,2,n/a,2,Yes,Indicates the presence or type of patio or porch.  
+161,SA_POOL_CODE,character varying,varchar,2,n/a,2,Yes,Indicates if there is a pool on the property and/or pool construction material.
+162,SA_PRIVACY_CODE,character varying,varchar,1,n/a,1,Yes,Indicates the Do Not Call/Do Not Mail status of the property owner.
+163,SA_ROOF_CODE,character varying,varchar,2,n/a,2,Yes,Indicates the finished material of which the roof is made
+164,SA_SQFT,integer,int,10,0,12,Yes,The total square footage of the living area of all structures on the property
+165,SA_SQFT_ASSR_TOT,integer,int,10,0,12,Yes,The total Assessor raw square footage of all buildings on the property
+166,SA_SQFT_DQ,integer,int,10,0,12,Yes,Codified field to signify at the record level which type of square footage is represented in the SA_SQFT field.
+167,SA_STRUCTURE_CODE,character varying,varchar,2,n/a,2,Yes,Indicates the structural style or the presence of specific style elements in the structure.
+168,SA_STRUCTURE_NBR,smallint,smallint,5,0,7,Yes,Indicates number of structures on the property
+169,SA_VIEW_CODE,character varying,varchar,2,n/a,2,Yes,Indicates the presence and type of view from the property. 
+170,SA_YR_BLT,smallint,smallint,5,0,7,Yes,Year in which the primary structure was built on the property
+171,SA_YR_BLT_EFFECT,smallint,smallint,5,0,7,Yes,"Year in which ""permitted"" major improvements were made to the property"
+172,SR_UNIQUE_ID,integer,int,10,0,12,Yes,The DataQuick internal unique transaction identifier.  In the Assessor data this liks to the last resale transaction
+173,SR_UNIQUE_ID_NOVAL,integer,int,10,0,12,Yes,The DataQuick internal unique transaction identifier.  In the Assessor data this liks to the last noval transaction
+174,SA_DATE_TRANSFER,integer,int,10,0,12,Yes,Document date for the most recent arms-length ownership transfer
+175,SA_VAL_TRANSFER,integer,int,10,0,12,Yes,Sale amount for the most recent ownership transfer.
+176,SA_DOC_NBR_FMT,character varying,varchar,20,n/a,20,Yes,Document number for the most recent arms-length ownership transfer as provided by the Assessor
+177,SA_DATE_NOVAL_TRANSFER,integer,int,10,0,12,Yes,"Date of the last recorded non-arms-length transfer without money, typically a quitclaim or other deed filed in the nature of a quitclaim."
+178,SA_DOC_NBR_NOVAL,character varying,varchar,20,n/a,20,Yes,"Document number of the last recorded non-arms-length transfer without money, typically a quitclaim or other deed filed in the nature of a quitclaim."
+179,PROCESS_ID,integer,int,10,0,12,No,"Process sequence number.  Used to determine the order in which data was written to the DataQuick Data Repositroy.  The larger the number, the more recent the data."
+180,SA_X_COORD,numeric,numeric,9,6,16,Yes,"The X co-ordinate, longitude location for the property."
+181,SA_Y_COORD,numeric,numeric,8,6,15,Yes,"The Y co-ordinate, latitude location for the property."
+182,SA_GEO_QLTY_CODE,character varying,varchar,1,n/a,1,Yes,Code to indicate the level of quality of the geocodes as determined by the Geocoding process.
+183,SA_CENSUS_TRACT,character varying,varchar,7,n/a,7,Yes,"The census tract.  A small, relatively permanent statistical subdivision of a county. Census Tracts are designed to be homogenous with respect to population characteristics, economic status, and living conditions"
+184,SA_CENSUS_BLOCK_GROUP,character varying,varchar,1,n/a,1,Yes,The census block group.  
+185,CORE_BASED_STATISTICAL_AREA_CODE,character varying,varchar,5,n/a,5,Yes,"The four-digit Federal Information Processing Standards (FIPS) code for the Metropolitan Statistical Area (MSA).  NOTE: Not every address will fall within an MSA. The MSA refers to a core area containing a substantial population nucleus, together with adjacent communities having a high degree of social and economic integration with that core. MSA comprise one or more entire counties."
+186,MINOR_CIVIL_DIVISION_CODE,character varying,varchar,5,n/a,5,Yes,The five-digit Federal Information Processing Standards (FIPS) Minor Civil Division (MCD) code.  NOTE: MCD refers to the primary governmental division of a county.
+187,FIPS_PLACE_CODE,character varying,varchar,5,n/a,5,Yes,The Federal Information Processing Standards (FIPS) code for a specific city/place
+188,SA_INACTIVE_PARCEL_FLAG,character varying,varchar,1,n/a,1,Yes,"Flag that indicates the property is no longer active, and will not be updated."
+189,SA_SHELL_PARCEL_FLAG,character varying,varchar,1,n/a,1,Yes,"Flag that indicates the property is a shell record, and a part of a parcel split."
+190,FILLER,character varying,varchar,7,n/a,7,Yes,Indicates filler.  
+,CR-LF,,varchar,2,n/a,2,,Row Terminator
+,Total,,,,,2230,,
