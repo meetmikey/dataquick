@@ -4,3 +4,4 @@ data/raw/*.txt
 data/avro/
 lib/*.pyc
 ENV/
+pig/*.log
