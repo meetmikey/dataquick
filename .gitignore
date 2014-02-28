@@ -6,4 +6,3 @@ lib/*.pyc
 ENV/
 pig/*.log
 data/raw/
-createMongo.sh

@@ -1,1 +1,586 @@
-{"type": "record", "namespace": "com.realkick", "name": "recorder", "fields": [{"type": "int", "name": "SR_UNIQUE_ID"}, {"type": ["null", "int"], "name": "SR_PROPERTY_ID"}, {"type": "int", "name": "SR_SCM_ID"}, {"type": "string", "name": "MM_STATE_CODE"}, {"type": "string", "name": "MM_MUNI_NAME"}, {"type": "int", "name": "MM_FIPS_STATE_CODE"}, {"type": "int", "name": "MM_FIPS_MUNI_CODE"}, {"type": "string", "name": "MM_FIPS_COUNTY_NAME"}, {"type": ["null", "string"], "name": "SR_PARCEL_NBR_RAW"}, {"type": ["null", "string"], "name": "SR_SITE_ADDR_RAW"}, {"type": ["null", "string"], "name": "SR_MAIL_ADDR_RAW"}, {"type": ["null", "string"], "name": "SR_MAIL_HOUSE_NBR"}, {"type": ["null", "string"], "name": "SR_MAIL_FRACTION"}, {"type": ["null", "string"], "name": "SR_MAIL_DIR"}, {"type": ["null", "string"], "name": "SR_MAIL_STREET_NAME"}, {"type": ["null", "string"], "name": "SR_MAIL_SUF"}, {"type": ["null", "string"], "name": "SR_MAIL_POST_DIR"}, {"type": ["null", "string"], "name": "SR_MAIL_UNIT_PRE"}, {"type": ["null", "string"], "name": "SR_MAIL_UNIT_VAL"}, {"type": ["null", "string"], "name": "SR_MAIL_CITY"}, {"type": ["null", "string"], "name": "SR_MAIL_STATE"}, {"type": ["null", "string"], "name": "SR_MAIL_ZIP"}, {"type": ["null", "string"], "name": "SR_MAIL_PLUS_4"}, {"type": ["null", "string"], "name": "SR_MAIL_CRRT"}, {"type": ["null", "string"], "name": "SR_LGL_DSCRPTN"}, {"type": ["null", "string"], "name": "SR_LGL_KEYED_BLOCK"}, {"type": ["null", "string"], "name": "SR_LGL_KEYED_LOT"}, {"type": ["null", "string"], "name": "SR_LGL_KEYED_PLAT_BOOK"}, {"type": ["null", "string"], "name": "SR_LGL_KEYED_PLAT_PAGE"}, {"type": ["null", "string"], "name": "SR_LGL_KEYED_RANGE"}, {"type": ["null", "string"], "name": "SR_LGL_KEYED_SECTION"}, {"type": ["null", "string"], "name": "SR_LGL_KEYED_SUB_NAME"}, {"type": ["null", "string"], "name": "SR_LGL_KEYED_TOWNSHIP"}, {"type": ["null", "string"], "name": "SR_LGL_KEYED_TRACT"}, {"type": ["null", "string"], "name": "SR_LGL_KEYED_UNIT"}, {"type": ["null", "string"], "name": "SR_BUYER"}, {"type": ["null", "string"], "name": "SR_SELLER"}, {"type": ["null", "int"], "name": "SR_VAL_TRANSFER"}, {"type": ["null", "float"], "name": "SR_TAX_TRANSFER"}, {"type": ["null", "string"], "name": "SR_DOC_NBR_RAW"}, {"type": ["null", "string"], "name": "SR_DOC_NBR_FMT"}, {"type": "int", "name": "SR_DATE_TRANSFER"}, {"type": ["null", "int"], "name": "SR_DATE_FILING"}, {"type": ["null", "string"], "name": "SR_DOC_TYPE"}, {"type": ["null", "string"], "name": "SR_DEED_TYPE"}, {"type": ["null", "string"], "name": "SR_TRAN_TYPE"}, {"type": "int", "name": "SR_QUITCLAIM"}, {"type": ["null", "string"], "name": "SR_ARMS_LENGTH_FLAG"}, {"type": ["null", "string"], "name": "SR_FULL_PART_CODE"}, {"type": ["null", "string"], "name": "SR_MULT_APN_FLAG_KEYED"}, {"type": ["null", "string"], "name": "SR_MULT_PORT_CODE"}, {"type": ["null", "string"], "name": "SR_LNDR_SELLER_FLAG"}, {"type": ["null", "string"], "name": "SR_TD_DOC_NBR_1"}, {"type": ["null", "string"], "name": "SR_LOAN_ID_1"}, {"type": ["null", "string"], "name": "SR_LOAN_ID_1_EXT"}, {"type": ["null", "int"], "name": "SR_LOAN_VAL_1"}, {"type": ["null", "string"], "name": "SR_LOAN_TYPE_1"}, {"type": ["null", "string"], "name": "SR_INT_RATE_TYPE_1"}, {"type": ["null", "string"], "name": "SR_LNDR_CREDIT_LINE_1"}, {"type": ["null", "int"], "name": "SR_LNDR_CODE_1"}, {"type": ["null", "string"], "name": "SR_LNDR_FIRST_NAME_1"}, {"type": ["null", "string"], "name": "SR_LNDR_LAST_NAME_1"}, {"type": ["null", "string"], "name": "SR_LENDER_TYPE_1"}, {"type": ["null", "string"], "name": "SR_TD_DOC_NBR_2"}, {"type": ["null", "string"], "name": "SR_LOAN_ID_2"}, {"type": ["null", "string"], "name": "SR_LOAN_ID_2_EXT"}, {"type": ["null", "int"], "name": "SR_LOAN_VAL_2"}, {"type": ["null", "string"], "name": "SR_LOAN_TYPE_2"}, {"type": ["null", "string"], "name": "SR_INT_RATE_TYPE_2"}, {"type": ["null", "string"], "name": "SR_LNDR_CREDIT_LINE_2"}, {"type": ["null", "int"], "name": "SR_LNDR_CODE_2"}, {"type": ["null", "string"], "name": "SR_LNDR_FIRST_NAME_2"}, {"type": ["null", "string"], "name": "SR_LNDR_LAST_NAME_2"}, {"type": ["null", "string"], "name": "SR_LENDER_TYPE_2"}, {"type": ["null", "string"], "name": "SR_TD_DOC_NBR_3"}, {"type": ["null", "string"], "name": "SR_LOAN_ID_3"}, {"type": ["null", "string"], "name": "SR_LOAN_ID_3_EXT"}, {"type": ["null", "int"], "name": "SR_LOAN_VAL_3"}, {"type": ["null", "string"], "name": "SR_LOAN_TYPE_3"}, {"type": ["null", "string"], "name": "SR_INT_RATE_TYPE_3"}, {"type": ["null", "int"], "name": "SR_LNDR_CODE_3"}, {"type": ["null", "string"], "name": "SR_LNDR_CREDIT_LINE_3"}, {"type": ["null", "string"], "name": "SR_LNDR_FIRST_NAME_3"}, {"type": ["null", "string"], "name": "SR_LNDR_LAST_NAME_3"}, {"type": ["null", "string"], "name": "SR_LENDER_TYPE_3"}, {"type": ["null", "string"], "name": "DISTRESS_INDICATOR"}, {"type": "int", "name": "PROCESS_ID"}]}
+{
+    "namespace": "com.realkick", 
+    "type": "record", 
+    "name": "recorder", 
+    "fields": [
+        {
+            "type": "int", 
+            "name": "SR_UNIQUE_ID"
+        }, 
+        {
+            "type": [
+                "null", 
+                "int"
+            ], 
+            "name": "SR_PROPERTY_ID"
+        }, 
+        {
+            "type": "int", 
+            "name": "SR_SCM_ID"
+        }, 
+        {
+            "type": "string", 
+            "name": "MM_STATE_CODE"
+        }, 
+        {
+            "type": "string", 
+            "name": "MM_MUNI_NAME"
+        }, 
+        {
+            "type": "int", 
+            "name": "MM_FIPS_STATE_CODE"
+        }, 
+        {
+            "type": "int", 
+            "name": "MM_FIPS_MUNI_CODE"
+        }, 
+        {
+            "type": "string", 
+            "name": "MM_FIPS_COUNTY_NAME"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_PARCEL_NBR_RAW"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_SITE_ADDR_RAW"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_MAIL_ADDR_RAW"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_MAIL_HOUSE_NBR"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_MAIL_FRACTION"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_MAIL_DIR"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_MAIL_STREET_NAME"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_MAIL_SUF"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_MAIL_POST_DIR"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_MAIL_UNIT_PRE"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_MAIL_UNIT_VAL"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_MAIL_CITY"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_MAIL_STATE"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_MAIL_ZIP"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_MAIL_PLUS_4"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_MAIL_CRRT"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LGL_DSCRPTN"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LGL_KEYED_BLOCK"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LGL_KEYED_LOT"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LGL_KEYED_PLAT_BOOK"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LGL_KEYED_PLAT_PAGE"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LGL_KEYED_RANGE"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LGL_KEYED_SECTION"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LGL_KEYED_SUB_NAME"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LGL_KEYED_TOWNSHIP"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LGL_KEYED_TRACT"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LGL_KEYED_UNIT"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_BUYER"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_SELLER"
+        }, 
+        {
+            "type": [
+                "null", 
+                "int"
+            ], 
+            "name": "SR_VAL_TRANSFER"
+        }, 
+        {
+            "type": [
+                "null", 
+                "float"
+            ], 
+            "name": "SR_TAX_TRANSFER"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_DOC_NBR_RAW"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_DOC_NBR_FMT"
+        }, 
+        {
+            "type": "int", 
+            "name": "SR_DATE_TRANSFER"
+        }, 
+        {
+            "type": [
+                "null", 
+                "int"
+            ], 
+            "name": "SR_DATE_FILING"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_DOC_TYPE"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_DEED_TYPE"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_TRAN_TYPE"
+        }, 
+        {
+            "type": "int", 
+            "name": "SR_QUITCLAIM"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_ARMS_LENGTH_FLAG"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_FULL_PART_CODE"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_MULT_APN_FLAG_KEYED"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_MULT_PORT_CODE"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LNDR_SELLER_FLAG"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_TD_DOC_NBR_1"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LOAN_ID_1"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LOAN_ID_1_EXT"
+        }, 
+        {
+            "type": [
+                "null", 
+                "int"
+            ], 
+            "name": "SR_LOAN_VAL_1"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LOAN_TYPE_1"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_INT_RATE_TYPE_1"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LNDR_CREDIT_LINE_1"
+        }, 
+        {
+            "type": [
+                "null", 
+                "int"
+            ], 
+            "name": "SR_LNDR_CODE_1"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LNDR_FIRST_NAME_1"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LNDR_LAST_NAME_1"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LENDER_TYPE_1"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_TD_DOC_NBR_2"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LOAN_ID_2"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LOAN_ID_2_EXT"
+        }, 
+        {
+            "type": [
+                "null", 
+                "int"
+            ], 
+            "name": "SR_LOAN_VAL_2"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LOAN_TYPE_2"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_INT_RATE_TYPE_2"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LNDR_CREDIT_LINE_2"
+        }, 
+        {
+            "type": [
+                "null", 
+                "int"
+            ], 
+            "name": "SR_LNDR_CODE_2"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LNDR_FIRST_NAME_2"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LNDR_LAST_NAME_2"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LENDER_TYPE_2"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_TD_DOC_NBR_3"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LOAN_ID_3"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LOAN_ID_3_EXT"
+        }, 
+        {
+            "type": [
+                "null", 
+                "int"
+            ], 
+            "name": "SR_LOAN_VAL_3"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LOAN_TYPE_3"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_INT_RATE_TYPE_3"
+        }, 
+        {
+            "type": [
+                "null", 
+                "int"
+            ], 
+            "name": "SR_LNDR_CODE_3"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LNDR_CREDIT_LINE_3"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LNDR_FIRST_NAME_3"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LNDR_LAST_NAME_3"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "SR_LENDER_TYPE_3"
+        }, 
+        {
+            "type": [
+                "null", 
+                "string"
+            ], 
+            "name": "DISTRESS_INDICATOR"
+        }, 
+        {
+            "type": "int", 
+            "name": "PROCESS_ID"
+        }
+    ]
+}
