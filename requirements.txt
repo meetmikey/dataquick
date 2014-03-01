@@ -1,3 +1,4 @@
 pymongo==2.6.3
 avro==1.7.6
 fastavro
+python-snappy
