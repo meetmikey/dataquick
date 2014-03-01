@@ -11,9 +11,5 @@ with open(fileName, 'rb') as fo:
   count = 0
   
   for record in reader:
-    count+=1
-    #process_record(record)
-    if count % 10000 == 0:
-      print count
-
-print count
+    print record
+    break

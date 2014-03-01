@@ -18,6 +18,8 @@ count = 0
 print dfReader
 
 for record in dfReader:
+  print json.dumps(record)
+  break
   if len(record['records']) >= 3:
     final = []
     for d in record['records']:
