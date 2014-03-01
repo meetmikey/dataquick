@@ -5,4 +5,5 @@ data/avro/
 lib/*.pyc
 ENV/
 pig/*.log
+pig/outputs
 data/raw/
