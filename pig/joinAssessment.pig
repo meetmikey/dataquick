@@ -3,7 +3,7 @@
 SET pig.pretty.print.schema true;
 SET mapred.output.compress true
 SET mapred.output.compression.codec org.apache.hadoop.io.compress.SnappyCodec
-SET avro.output.codec deflate
+SET avro.output.codec $avroCompressionCodec
 
 REGISTER avro-1.7.6.jar;
 REGISTER avro-mapred-1.7.6.jar;
