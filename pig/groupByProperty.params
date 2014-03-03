@@ -1,3 +1,2 @@
-# put parameters for pig scripts here
 schemaFile = 'file:///Users/sagarmac/Code/real_estate/residential/dataquick/data/avroSchema/avro_recorder_grouped.avsc'
 avroCompressionCodec = deflate

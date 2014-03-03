@@ -10,4 +10,4 @@ records = LOAD '../data/avro/BAY_AREA/recorder/*' USING AvroStorage();
 
 groups = GROUP records BY SR_PROPERTY_ID;
 
-STORE groups into 'grouped' using AvroStorage('recorder_grouped', '-schemafile $schemaFile');
+STORE groups into 'outputs/grouped' using AvroStorage('recorder_grouped', '-schemafile $schemaFile');
