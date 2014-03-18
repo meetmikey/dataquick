@@ -699,28 +699,4 @@ def groupSource(src:RichPipe, col:String) {
 "SA_YR_BLT")
 
   groups.foreach( g=> groupSource(joined, g))
-
-  /*
-  "MM_FIPS_COUNTY_NAME",
-"SR_LOAN_VAL_1",
-"SR_LNDR_FIRST_NAME_1"
-"SA_SITE_CITY",
-"SA_MAIL_ZIP",
-"SA_VAL_ASSD",
-"SA_TAX_VAL",
-"SA_FIN_SQFT_TOT",
-"SA_GARAGE_CARPORT",
-"SA_LOTSIZE",
-"SA_NBR_BATH",
-"SA_NBR_BEDRMS",
-"SA_NBR_RMS",
-"SA_NBR_STORIES",
-"SA_SQFT",
-"SA_SQFT_ASSR_TOT",
-"SA_YR_BLT",
-"SA_X_COORD",
-"SA_Y_COORD"
-  */
-
-  //joined.write(Tsv(args("output")))
 }
