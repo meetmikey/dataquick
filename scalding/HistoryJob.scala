@@ -98,8 +98,7 @@ val colsToKeep_history = Seq(
 "MM_FIPS_COUNTY_NAME",
 "SR_DATE_FILING",
 "SR_LOAN_VAL_1",
-"SR_LNDR_FIRST_NAME_1",
-"SR_LNDR_LAST_NAME_1"
+"SR_LNDR_FIRST_NAME_1"
 )
 
 val history_pos = Seq(
@@ -586,11 +585,6 @@ val colsToKeep_assessor = Seq(
 "SA_SITE_CITY",
 "SA_MAIL_ZIP",
 "SA_VAL_ASSD",
-"SA_VAL_MARKET",
-"SA_VAL_MARKET_LAND",
-"SA_VAL_MARKET_IMPRV",
-"SA_VAL_FULL_CASH",
-"SA_VAL_ASSD_PREV",
 "SA_TAX_VAL",
 "SA_FIN_SQFT_TOT",
 "SA_GARAGE_CARPORT",
@@ -620,7 +614,7 @@ def colpos( cols:Seq[String], pos:Seq[Int]):Coll = {
 }
 
 def mkSource(name:String, colname:Symbol, coll:Coll, pk:Symbol, pkName:String, recordsize:Int, colsToKeep:Seq[String], filtCol:Option[String] = None, filter:String=>Boolean = null) = {
-  var count = 0
+  //var count = 0
   TextLine(name).read
   .flatMapTo('line -> (pk, colname)){
     x:String =>
@@ -640,11 +634,29 @@ def mkSource(name:String, colname:Symbol, coll:Coll, pk:Symbol, pkName:String, r
           } else Some(tuple)
         } else None
       }
-      count += 1
-      if(count % 10000 == 0) println(count + "."+ pkey + ":" + record)
+      //count += 1
+      //if(count % 10000 == 0) println(count + "."+ pkey + ":" + record)
       Some((pkey, record))
     }
   }
+}
+
+def groupSource(src:RichPipe, col:String) {
+  src.mapTo('cols -> 'gp) {
+    x:List[(String, String)] =>
+      x.flatMap{ kv =>
+      //val arr = ab.split(",")
+      //val kv = (arr(0), arr(1))
+      if (kv._1 == col) Some(kv._2) else None
+      }.head
+  }.groupBy('gp){
+    _.size
+  }.groupAll {
+    _.sortedReverseTake[(Int, String)](('size, 'gp) -> 'top, 1000)
+  }.map('top -> 'top){
+    x:List[(Int, String)] =>
+    x.map( str => "%d\t%s" format (str._1, str._2)).mkString("\n")
+  }.write(Tsv(col))
 }
 
   val histData = mkSource(
@@ -667,6 +679,48 @@ def mkSource(name:String, colname:Symbol, coll:Coll, pk:Symbol, pkName:String, r
     assessor_size,
     colsToKeep_assessor)
 
-  histData.joinWithSmaller('pk -> 'pk, assessorData)
-  .write(Tsv(args("output")))
+  val joined = histData.joinWithSmaller('pk -> 'pk, assessorData)
+  .mapTo(('histcol, 'assessorcol) -> 'cols) {
+    x:(List[(String, String)], List[(String, String)]) =>
+    val y:List[(String, String)] = x._1 ++ x._2
+    y
+  }
+
+  val groups = List(
+    "MM_FIPS_COUNTY_NAME",
+"SR_LNDR_FIRST_NAME_1",
+"SA_SITE_CITY",
+"SA_MAIL_ZIP",
+"SA_GARAGE_CARPORT",
+"SA_NBR_BATH",
+"SA_NBR_BEDRMS",
+"SA_NBR_RMS",
+"SA_NBR_STORIES",
+"SA_YR_BLT")
+
+  groups.foreach( g=> groupSource(joined, g))
+
+  /*
+  "MM_FIPS_COUNTY_NAME",
+"SR_LOAN_VAL_1",
+"SR_LNDR_FIRST_NAME_1"
+"SA_SITE_CITY",
+"SA_MAIL_ZIP",
+"SA_VAL_ASSD",
+"SA_TAX_VAL",
+"SA_FIN_SQFT_TOT",
+"SA_GARAGE_CARPORT",
+"SA_LOTSIZE",
+"SA_NBR_BATH",
+"SA_NBR_BEDRMS",
+"SA_NBR_RMS",
+"SA_NBR_STORIES",
+"SA_SQFT",
+"SA_SQFT_ASSR_TOT",
+"SA_YR_BLT",
+"SA_X_COORD",
+"SA_Y_COORD"
+  */
+
+  //joined.write(Tsv(args("output")))
 }
