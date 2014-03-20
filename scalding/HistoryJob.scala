@@ -586,7 +586,6 @@ val colsToKeep_assessor = Seq(
 "SA_MAIL_ZIP",
 "SA_VAL_ASSD",
 "SA_TAX_VAL",
-"SA_FIN_SQFT_TOT",
 "SA_GARAGE_CARPORT",
 "SA_LOTSIZE",
 "SA_NBR_BATH",
@@ -594,7 +593,6 @@ val colsToKeep_assessor = Seq(
 "SA_NBR_RMS",
 "SA_NBR_STORIES",
 "SA_SQFT",
-"SA_SQFT_ASSR_TOT",
 "SA_YR_BLT",
 "SA_X_COORD",
 "SA_Y_COORD"
@@ -659,6 +657,26 @@ def groupSource(src:RichPipe, col:String) {
   }.write(Tsv(col))
 }
 
+def thresholdSource(src:RichPipe, col:String, func:String=>Double) {
+  src.mapTo('cols -> 'gp) {
+    x:List[(String, String)] =>
+      x.flatMap{ kv =>
+      //val arr = ab.split(",")
+      //val kv = (arr(0), arr(1))
+        if (kv._1 == col) {
+          Some(func(kv._2))
+        } else None
+      }.head
+  }.groupBy('gp){
+    _.size
+  }.groupAll {
+    _.sortedReverseTake[(Int, String)](('size, 'gp) -> 'top, 1000)
+  }.map('top -> 'top){
+    x:List[(Int, String)] =>
+    x.map( str => "%d\t%s" format (str._1, str._2)).mkString("\n")
+  }.write(Tsv(col))
+}
+
   val histData = mkSource(
     args("history"),
     'histcol,
@@ -698,5 +716,28 @@ def groupSource(src:RichPipe, col:String) {
 "SA_NBR_STORIES",
 "SA_YR_BLT")
 
-  groups.foreach( g=> groupSource(joined, g))
+  def mkFunc(granular:Double) = {
+    def func(x:String):Double = {
+      val res = {
+        try {
+          x.trim.toDouble
+        } catch {
+          case e:Exception => 0.0
+        }
+      }
+      ((res/granular).toInt)*granular
+    }
+    func _
+  }
+
+  val threshold = List(
+    ("SA_VAL_ASSD", mkFunc(50000.0)),
+    ("SA_TAX_VAL", mkFunc(1000.0)),
+    ("SA_SQFT", mkFunc(100.0)),
+    ("SA_LOTSIZE", mkFunc(100.0))
+  )
+
+  //groups.foreach( g=> groupSource(joined, g))
+
+  threshold.foreach( g=> thresholdSource(joined, g._1, g._2))
 }
