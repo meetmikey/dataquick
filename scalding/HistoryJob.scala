@@ -677,6 +677,33 @@ def thresholdSource(src:RichPipe, col:String, func:String=>Double) {
   }.write(Tsv(col))
 }
 
+def thresholdGpSource(src:RichPipe, colfunc: List[(String, String=>Double)]) {
+  val sinkname = colfunc.map{cf => cf._1}.mkString("_")
+  val grouped = src.flatMapTo('cols -> 'rhs) {
+    x:List[(String, String)] =>
+      val res = colfunc.map{ cf =>
+        val (col, func) = cf
+        x.flatMap{ kv =>
+          if (kv._1 == col) {
+            if(func !=null) Some(func(kv._2).toString) else Some(kv._2)
+          } else None
+        }.head
+      }
+
+      val endres = res.mkString("_")
+      val baddata = endres.contains("_0.0")
+      if (baddata) None else Some(endres)
+
+  }.groupBy('rhs){
+    _.size
+  }.groupAll {
+    _.sortedReverseTake[(Int, String)](('size, 'rhs) -> 'top, 1000)
+  }.map('top -> 'top){
+    x:List[(Int, String)] =>
+    x.map( str => "%d\t%s" format (str._1, str._2)).mkString("\n")
+  }.write(Tsv(sinkname))
+}
+
   val histData = mkSource(
     args("history"),
     'histcol,
@@ -706,15 +733,15 @@ def thresholdSource(src:RichPipe, col:String, func:String=>Double) {
 
   val groups = List(
     "MM_FIPS_COUNTY_NAME",
-"SR_LNDR_FIRST_NAME_1",
-"SA_SITE_CITY",
-"SA_MAIL_ZIP",
-"SA_GARAGE_CARPORT",
-"SA_NBR_BATH",
-"SA_NBR_BEDRMS",
-"SA_NBR_RMS",
-"SA_NBR_STORIES",
-"SA_YR_BLT")
+    "SR_LNDR_FIRST_NAME_1",
+    "SA_SITE_CITY",
+    "SA_MAIL_ZIP",
+    "SA_GARAGE_CARPORT",
+    "SA_NBR_BATH",
+    "SA_NBR_BEDRMS",
+    "SA_NBR_RMS",
+    "SA_NBR_STORIES",
+    "SA_YR_BLT")
 
   def mkFunc(granular:Double) = {
     def func(x:String):Double = {
@@ -730,6 +757,20 @@ def thresholdSource(src:RichPipe, col:String, func:String=>Double) {
     func _
   }
 
+  def dateFunc = {
+    def func(x:String):Double = {
+      val res = {
+        try {
+          x.trim.slice(0,4).toDouble
+        } catch {
+          case e:Exception => 0.0
+        }
+      }
+      res
+    }
+    func _
+  }
+
   val threshold = List(
     ("SA_VAL_ASSD", mkFunc(50000.0)),
     ("SA_TAX_VAL", mkFunc(1000.0)),
@@ -739,5 +780,16 @@ def thresholdSource(src:RichPipe, col:String, func:String=>Double) {
 
   //groups.foreach( g=> groupSource(joined, g))
 
-  threshold.foreach( g=> thresholdSource(joined, g._1, g._2))
+  // threshold.foreach( g=> thresholdSource(joined, g._1, g._2))
+
+  val thresholdGp = List(
+    ("SA_SITE_CITY",null),
+    ("SR_DATE_FILING", dateFunc),
+    ("SA_VAL_ASSD", mkFunc(50000.0)),
+    ("SA_SQFT", mkFunc(100.0)),
+    ("SA_LOTSIZE", mkFunc(100.0))
+  )
+
+  thresholdGpSource(joined, thresholdGp)
+
 }
